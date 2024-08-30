@@ -44,6 +44,11 @@ The script `build.sh` is performing three steps
 * Invoke the docker container to create the plain ext4 file system in `tmp/images/rootfs.img` containing the content of the folder `./tar/`
 * Invoke the docker container to encrypt the plain ext4 file system in place. 
 
+Within the script `scripts/encrypt-image.sh` the encryption will be performed with the following command in user space (not in kernel space). Note that the plain ext4 must be reduzed in size before, reserving space for the LUKS header! 
+```shell
+cat "$PASS_FILE" | cryptsetup reencrypt  --new  --disable-locks  --reduce-device-size "${LUKS_HEADER_SIZE}M" ${IMAGE_FILE}
+```
+ 
 Finally the encrypted file system image is the file `tmp/images/rootfs.img`
   
 
