@@ -109,7 +109,6 @@ $ ./test-efs-privileged.sh
 ```
 The test script is opening the LUKS image, and mounting the file system. The script should terminate with SUCCESS message.
 ```
-The expected test output is
 >>> Opening LUKS fs: tmp/images/rootfs.img
 >>> Mounting fs: /dev/mapper/efs
 >>> Reading fs /tmp/efs-mount
