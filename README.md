@@ -35,8 +35,10 @@ $ cd cryptsetup-containerized
 
 The build.sh script is performing three steps
 * Create the docker image from Dockerfile
-* Invoke the docker container to create the plain ext4 file system in 'tmp/images/rootfs.img'
-* Invoke the docker container to encrypt the plain4 ext4 file system in place 
+* Invoke the docker container to create the plain ext4 file system in `tmp/images/rootfs.img` containing the content of the folder `./tar/`
+* Invoke the docker container to encrypt the plain4 ext4 file system in place
+Finally the encrypted file system image is the file `tmp/images/rootfs.img`
+  
 ```shell
 $ ./build.sh
 ```
@@ -104,6 +106,8 @@ Finished, time 00m08s, 4080 MiB written, speed 456.7 MiB/s
 Verifying the LUKS Image requires root privileges on the host
 ```shell
 $ ./test-efs-privileged.sh
+```
+The test script is opening the LUKS image, and mounting the file system. The script should terminate with SUCCESS message.
 ```
 The expected test output is
 >>> Opening LUKS fs: tmp/images/rootfs.img
