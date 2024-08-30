@@ -37,6 +37,7 @@ The build.sh script is performing three steps
 * Create the docker image from Dockerfile
 * Invoke the docker container to create the plain ext4 file system in `tmp/images/rootfs.img` containing the content of the folder `./tar/`
 * Invoke the docker container to encrypt the plain4 ext4 file system in place
+
 Finally the encrypted file system image is the file `tmp/images/rootfs.img`
   
 ```shell
